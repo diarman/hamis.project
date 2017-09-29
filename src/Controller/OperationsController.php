@@ -44,7 +44,7 @@ class OperationsController extends AppController
                 $this->Flash->success(__('The {0} has been saved.', 'Operation'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'Operation'));
+                $this->Flash->error(__('The {0} could not be saved. Please,  try again.', 'Operation'));
             }
         }
         $users = $this->Operations->Users->find('list', ['limit' => 200]);
