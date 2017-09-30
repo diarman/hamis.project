@@ -1,6 +1,6 @@
 <?php $this->layout = 'AdminLTE.home'; ?>
 <!-- Main content -->
-<section class="Content">
+<section class="Content" >
   <div id="preloader">
       <div id="loader">
          <div class="dot"></div>
