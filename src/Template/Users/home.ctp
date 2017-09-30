@@ -103,7 +103,7 @@
                                 <?php echo $this->Html->image('contract.png', array('class' => 'user-image', 'alt' => 'User Image'));?> 
                               </a>
                               <h5 align="center" style="margin-top: 10px;" style="margin-top: 10px;">
-                                <a href="<?php echo $this->Url->build('/contrats'); ?>">
+                                <a href="<?php echo $this->Url->build('/contracts'); ?>">
                                   <span><?= __('Contrats')?></span>
                                 </a>
                               </h5>
