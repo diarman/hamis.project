@@ -112,4 +112,24 @@ class ProductsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * médicaments method
+     *
+     * @return \Cake\Http\Response|void
+     */
+    public function pharmaceuticals()
+    {
+        
+    }
+
+    /**
+     * vaccins method
+     *
+     * @return \Cake\Http\Response|void
+     */
+    public function vaccines()
+    {
+
+    }
 }

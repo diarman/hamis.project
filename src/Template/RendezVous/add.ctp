@@ -24,21 +24,13 @@
         <!-- form start -->
         <?= $this->Form->create($rendezVous, array('role' => 'form')) ?>
           <div class="box-body">
-            <div class="row">
-              <div class="col-md-6">
-                <?php
-                    echo $this->Form->input('code');
-                    echo $this->Form->input('contexte');
-                    echo $this->Form->input('date_rdv', ['empty' => true, 'default' => '', 'class' => 'datepicker form-control', 'type' => 'text']);
-                ?>
-              </div>
-              <div class="col-md-6">
-                <?php
-                      echo $this->Form->input('heure_rdv');
-                      echo $this->Form->input('etat');
-                ?>
-              </div>
-            </div>
+          <?php
+            echo $this->Form->input('code');
+            echo $this->Form->input('contexte');
+            echo $this->Form->input('date_rdv', ['empty' => true, 'default' => '', 'class' => 'datepicker form-control', 'type' => 'text']);
+            echo $this->Form->input('heure_rdv');
+            echo $this->Form->input('etat');
+          ?>
           </div>
           <!-- /.box-body -->
           <div class="box-footer">

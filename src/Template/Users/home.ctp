@@ -313,12 +313,12 @@
                           </h5>
                         </div>
                         <div class="col-sm-4 items">
-                          <a href="<?php echo $this->Url->build('/rendrez-vous'); ?>">
+                          <a href="<?php echo $this->Url->build('/apointments'); ?>">
                             <?php echo $this->Html->image('rendez-vous.png', array('class' => 'user-image', 'alt' => 'User Image')); ?> 
                           </a>
                           <h5 align="center" style="margin-top: 10px;" style="margin-top: 10px;">
-                            <a href="<?php echo $this->Url->build('/rendrez-vous'); ?>">
-                              <span><?= __('Rendrez-vous')?></span>
+                            <a href="<?php echo $this->Url->build('/apointments'); ?>">
+                              <span><?= __('apointments')?></span>
                             </a>
                           </h5>
                         </div>
@@ -438,12 +438,12 @@
                           </h5>
                         </div>
                         <div class="col-sm-4 items">
-                          <a href="<?php echo $this->Url->build('/rendrez-vous'); ?>">
+                          <a href="<?php echo $this->Url->build('/apointments'); ?>">
                             <?php echo $this->Html->image('rendez-vous.png', array('class' => 'user-image', 'alt' => 'User Image')); ?> 
                           </a>
                           <h5 align="center" style="margin-top: 10px;" style="margin-top: 10px;">
-                            <a href="<?php echo $this->Url->build('/rendrez-vous'); ?>">
-                              <span><?= __('Rendrez-vous')?></span>
+                            <a href="<?php echo $this->Url->build('/apointments'); ?>">
+                              <span><?= __('apointments')?></span>
                             </a>
                           </h5>
                         </div>
@@ -707,12 +707,12 @@
                           </h5>
                         </div>
                         <div class="col-sm-4 items">
-                          <a href="<?php echo $this->Url->build('/rendrez-vous'); ?>">
+                          <a href="<?php echo $this->Url->build('/apointments'); ?>">
                             <?php echo $this->Html->image('rendez-vous.png', array('class' => 'user-image', 'alt' => 'User Image')); ?> 
                           </a>
                           <h5 align="center" style="margin-top: 10px;" style="margin-top: 10px;">
-                            <a href="<?php echo $this->Url->build('/rendrez-vous'); ?>">
-                              <span><?= __('Rendrez-vous')?></span>
+                            <a href="<?php echo $this->Url->build('/apointments'); ?>">
+                              <span><?= __('apointments')?></span>
                             </a>
                           </h5>
                         </div>

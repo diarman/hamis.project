@@ -230,5 +230,5 @@ Configure::write('Theme', [
         'show_social' => true
     ],
     'folder' => ROOT,
-    'skin' => 'blue' // default is 'blue'
+    'skin' => 'green' // default is 'blue'
 ]);

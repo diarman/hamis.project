@@ -20,7 +20,6 @@
                 <thead>
                   <tr>
                 <th><?= $this->Paginator->sort('user_id') ?></th>
-                <th><?= $this->Paginator->sort('staff_id') ?></th>
                 <th><?= $this->Paginator->sort('job_function_id') ?></th>
                 <th><?= $this->Paginator->sort('service_id') ?></th>
                 <th><?= $this->Paginator->sort('hire_date') ?></th>
@@ -31,11 +30,10 @@
                 <tbody>
             <?php foreach ($staffs as $staff): ?>
               <tr>
-                <td><?= $staff->has('user') ? $this->Html->link($staff->user->id, ['controller' => 'Users', 'action' => 'view', $staff->user->id]) : '' ?></td>
-                  <td><?= $this->Number->format($staff->staff_id) ?></td>
+                <td><?= $staff->has('user') ? $this->Html->link($staff->user->last_name.' '.$staff->user->first_name, ['controller' => 'Users', 'action' => 'view', $staff->user->id]) : '' ?></td>
                   <td><?= $staff->has('job_function') ? $this->Html->link($staff->job_function->name, ['controller' => 'JobFunctions', 'action' => 'view', $staff->job_function->id]) : '' ?></td>
                 <td><?= $staff->has('service') ? $this->Html->link($staff->service->name, ['controller' => 'Services', 'action' => 'view', $staff->service->id]) : '' ?></td>
-                  <td><?= h($staff->hire_date) ?></td>
+                  <td><?= $staff->hire_date->format(DATE_RFC850) ?></td>
                     <td><?= $this->Number->format($staff->salary) ?></td>
                       <td class="actions" style="white-space: nowrap; width: 80px; text-align: center;">
                       <?= $this->Html->link(__(''), ['action' => 'view', $staff->id], ['class'=>'btn btn-primary fa fa-eye']) ?>

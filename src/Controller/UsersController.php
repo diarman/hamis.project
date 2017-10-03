@@ -36,7 +36,7 @@ class UsersController extends AppController
      */
     public function list()
     {
-        OperationsController::journalisation($auth ['User']['id'], 'Lister les utilisateurs', 'utilisateurs');
+        //OperationsController::journalisation($auth ['User']['id'], 'Lister les utilisateurs', 'utilisateurs');
 
         $users = $this->paginate($this->Users);
 
@@ -54,7 +54,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => []
+            'contain' => ['JobFunctions', 'Services']
         ]);
 
         $this->set('user', $user);
@@ -89,9 +89,79 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data, ['associated'=>['Operations']]);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The {0} has been saved.', 'User'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'list']);
             } else {
                 $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'User'));
+            }
+        }
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
+    }
+
+    /**
+     * Add method
+     *
+     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
+     */
+    public function addstaff()
+    {
+        $user = $this->Users->newEntity();
+        if ($this->request->is('post'))
+        {
+            $filename = $this->request->data['photo'];
+            $dossier = 'img/';
+            $Uploadfile = $dossier . $filename;
+            if (move_uploaded_file($this->request->data['photo'], $Uploadfile)) 
+            { 
+                $user = $this->Users->patchEntity($user, $this->request->data, ['associated'=>['Staffs']]);
+                if ($this->Users->save($user)) 
+                {
+                    $this->Flash->success(__('The {0} has been saved.', 'User'));
+                    return $this->redirect(['controller' => 'Staffs', 'action' => 'index']);
+                } else
+                {
+                    $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'User'));
+                }
+            }
+            else
+            {
+                $this->Flash->error(__('The {0} could not be upload. Please, try again.', 'User'));
+            }
+            
+            ;
+        }
+
+        $jobFunctions = $this->Users->Staffs->JobFunctions->find('list', ['limit' => 200]);
+        $services = $this->Users->Staffs->Services->find('list', ['limit' => 200]);
+        $this->set(compact('user', 'staffs', 'jobFunctions', 'services'));
+        $this->set('_serialize', ['user']);
+    }
+
+    /**
+     * Add method
+     *
+     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
+     */
+    public function addpatient()
+    {
+        $user = $this->Users->newEntity();
+        if ($this->request->is('post')) 
+        {
+            $filename = $this->request->data['file']['name'];
+            $dossier = 'img/';
+            $Uploadfile = $dossier . $filename;
+            if (move_uploaded_file($this->request->data['file']['tmp_name'], $Uploadfile)) 
+            {
+                $user = $this->Users->patchEntity($user, $this->request->data, ['associated'=>['Patients']]);
+                if ($this->Users->save($user)) 
+                {
+                    $this->Flash->success(__('The {0} has been saved.', 'User'));
+                    return $this->redirect(['controller' => 'Patients', 'action' => 'index']);
+                } 
+                else 
+                {
+                    $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'User'));
+                }
             }
         }
         $this->set(compact('user'));

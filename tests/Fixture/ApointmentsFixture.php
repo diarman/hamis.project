@@ -4,18 +4,11 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * RendezVousFixture
+ * ApointmentsFixture
  *
  */
-class RendezVousFixture extends TestFixture
+class ApointmentsFixture extends TestFixture
 {
-
-    /**
-     * Table name
-     *
-     * @var string
-     */
-    public $table = 'rendez_vous';
 
     /**
      * Fields
@@ -33,8 +26,8 @@ class RendezVousFixture extends TestFixture
         'etat' => ['type' => 'string', 'length' => 254, 'default' => null, 'null' => true, 'collate' => null, 'comment' => null, 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['patient_id', 'user_id'], 'length' => []],
-            'rendez_vous_patient_id_fkey' => ['type' => 'foreign', 'columns' => ['patient_id'], 'references' => ['patients', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
-            'rendez_vous_user_id_fkey' => ['type' => 'foreign', 'columns' => ['user_id'], 'references' => ['users', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'apointments_patient_id_fkey' => ['type' => 'foreign', 'columns' => ['patient_id'], 'references' => ['patients', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'apointments_user_id_fkey' => ['type' => 'foreign', 'columns' => ['user_id'], 'references' => ['users', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
     ];
     // @codingStandardsIgnoreEnd
@@ -51,7 +44,7 @@ class RendezVousFixture extends TestFixture
             'code' => 'Lorem ipsum dolor sit amet',
             'contexte' => 'Lorem ipsum dolor sit amet',
             'date_rdv' => '2017-09-30',
-            'heure_rdv' => '15:07:57',
+            'heure_rdv' => '15:17:49',
             'etat' => 'Lorem ipsum dolor sit amet'
         ],
     ];

@@ -21,7 +21,7 @@
                   <tr>
                 <th><?= $this->Paginator->sort('last_name') ?></th>
                 <th><?= $this->Paginator->sort('first_name') ?></th>
-                <th><?= $this->Paginator->sort('birthday') ?></th>
+                <th><?= $this->Paginator->sort('birth_day') ?></th>
                 <th><?= $this->Paginator->sort('birth_place') ?></th>
                 <th><?= $this->Paginator->sort('sex') ?></th>
                 <th><?= $this->Paginator->sort('phone_number') ?></th>
@@ -33,7 +33,7 @@
               <tr>
                   <td><?= h($user->last_name) ?></td>
                     <td><?= h($user->first_name) ?></td>
-                    <td><?= h($user->birthday) ?></td>
+                    <td><?= $user->birthday->format(DATE_RFC850) ?></td>
                     <td><?= h($user->birth_place) ?></td>
                     <td><?= h($user->sex) ?></td>
                     <td><?= $this->Number->format($user->phone_number) ?></td>

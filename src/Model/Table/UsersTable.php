@@ -39,7 +39,8 @@ class UsersTable extends Table
         $this->addBehavior('Timestamp');
 
 
-        $this->hasOne('Operations', ['foreignKey' => 'user_id']);
+        $this->hasOne('Patients', ['foreignKey' => 'user_id']);
+        $this->hasOne('Staffs', ['foreignKey' => 'user_id']);
     }
 
     /**

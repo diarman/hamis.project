@@ -32,7 +32,7 @@ class StaffsTable extends Table
 {
 
     /**
-     * Initialize method
+     * Initialize method 
      *
      * @param array $config The configuration for the Table.
      * @return void
@@ -108,7 +108,7 @@ class StaffsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
+        //$rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['staff_id'], 'Staffs'));
         $rules->add($rules->existsIn(['job_function_id'], 'JobFunctions'));
         $rules->add($rules->existsIn(['service_id'], 'Services'));

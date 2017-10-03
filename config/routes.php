@@ -43,6 +43,21 @@ use Cake\Routing\Route\DashedRoute;
  */
 Router::defaultRouteClass(DashedRoute::class);
 
+
+
+//pour les exam-types
+// Nouvelle route ajoutée pour notre action "tagged".
+// Le caractère ` *` en fin de chaîne indique à CakePHP que cette action a
+// des paramètres passés
+/*Router:: scope('/bookmarks', [ 'controller' => 'Bookmarks' ], function ($routes) 
+    {
+        $routes->connect('/tagged/*' , [ 'action' => 'tags' ]);
+    }
+);
+*/
+
+
+
 Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',

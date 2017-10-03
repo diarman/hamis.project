@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
-    Rendez Vous
-    <small><?= __('Edit') ?></small>
+    Apointment
+    <small><?= __('Add') ?></small>
   </h1>
   <ol class="breadcrumb">
     <li>
@@ -22,7 +22,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <?= $this->Form->create($rendezVous, array('role' => 'form')) ?>
+        <?= $this->Form->create($apointment, array('role' => 'form')) ?>
           <div class="box-body">
           <?php
             echo $this->Form->input('code');

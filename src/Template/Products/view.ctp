@@ -4,7 +4,33 @@
   </h1>
   <ol class="breadcrumb">
     <li>
-    <?= $this->Html->link('<i class="fa fa-undo fa-2x"></i> ' . __('Back'), ['action' => 'index'], ['escape' => false])?>
+        <?php
+            switch ($auth ['User']['role']) 
+            {
+                case 'responsable vaccination':
+                    echo $this->Html->link('<i class="fa fa-undo fa-2x"></i> ' . __('Back'), ['action' => 'vaccines'], ['escape' => false]);
+                    break;
+                case 'docteur':
+                    echo $this->Html->link('<i class="fa fa-undo fa-2x"></i> ' . __('Back'), ['action' => 'pharmaceuticals'], ['escape' => false]);
+                    break;
+                /*case 'responsable vaccination':
+                    # code...
+                    break;
+                case 'responsable vaccination':
+                    # code...
+                    break;
+                case 'responsable vaccination':
+                    # code...
+                    break;
+                case 'responsable vaccination':
+                    # code...
+                    break;*/
+                
+                default:
+                    echo $this->Html->link('<i class="fa fa-undo fa-2x"></i> ' . __('Back'), ['action' => 'pharmaceuticals'], ['escape' => false]);
+                    break;
+            }
+        ?>
     </li>
   </ol>
 </section>

@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    <?= __('Patients') ?> 
+    <?= __('Apointments') ?> 
     <div class="pull-right"><?= $this->Html->link(__('New'), ['action' => 'add'], ['class'=>'btn btn-success btn-xs']) ?></div>
   </h1>
 </section>
@@ -13,34 +13,36 @@
       <div class="box">
         <div class="box-header">
           <div class="box-title">
-          <h3 class="box-title"><?= __('List of Patients') ?> </h3>
+          <h3 class="box-title"><?= __('List of Apointments') ?> </h3>
           </div>
           <div class="box-body table-responsive">
             <table id="example1" class="table table-bordered table-striped table-hover ">
                 <thead>
                   <tr>
+                <th><?= $this->Paginator->sort('patient_id') ?></th>
                 <th><?= $this->Paginator->sort('user_id') ?></th>
                 <th><?= $this->Paginator->sort('code') ?></th>
-                <th><?= $this->Paginator->sort('phone_number2') ?></th>
-                <th><?= $this->Paginator->sort('religion') ?></th>
-                <th><?= $this->Paginator->sort('desired_service') ?></th>
-                <th><?= $this->Paginator->sort('active') ?></th>
+                <th><?= $this->Paginator->sort('contexte') ?></th>
+                <th><?= $this->Paginator->sort('date_rdv') ?></th>
+                <th><?= $this->Paginator->sort('heure_rdv') ?></th>
+                <th><?= $this->Paginator->sort('etat') ?></th>
                 <th class="pull-right" width="80px"><?= __('Actions') ?></th>
               </tr>
                 </thead>
                 <tbody>
-            <?php foreach ($patients as $patient): ?>
+            <?php foreach ($apointments as $apointment): ?>
               <tr>
-                <td><?= $patient->has('user') ? $this->Html->link($patient->user->last_name.' '.$patient->user->first_name, ['controller' => 'Users', 'action' => 'view', $patient->user->id]) : '' ?></td>
-                  <td><?= h($patient->code) ?></td>
-                    <td><?= $this->Number->format($patient->phone_number2) ?></td>
-                    <td><?= h($patient->religion) ?></td>
-                    <td><?= h($patient->desired_service) ?></td>
-                    <td><?= h($patient->active) ?></td>
+                <td><?= $apointment->has('patient') ? $this->Html->link($apointment->patient->id, ['controller' => 'Patients', 'action' => 'view', $apointment->patient->id]) : '' ?></td>
+                <td><?= $apointment->has('user') ? $this->Html->link($apointment->user->id, ['controller' => 'Users', 'action' => 'view', $apointment->user->id]) : '' ?></td>
+                  <td><?= h($apointment->code) ?></td>
+                    <td><?= h($apointment->contexte) ?></td>
+                    <td><?= h($apointment->date_rdv) ?></td>
+                    <td><?= h($apointment->heure_rdv) ?></td>
+                    <td><?= h($apointment->etat) ?></td>
                       <td class="actions" style="white-space: nowrap; width: 80px; text-align: center;">
-                      <?= $this->Html->link(__(''), ['action' => 'view', $patient->id], ['class'=>'btn btn-primary fa fa-eye']) ?>
-                      <?= $this->Html->link(__(''), ['action' => 'edit', $patient->id], ['class'=>'btn btn-info fa fa-edit']) ?>
-                      <?= $this->Form->postLink(__(''), ['action' => 'delete', $patient->id], ['confirm' => __('Confirm to delete this entry?'), 'class'=>' btn btn-danger fa fa-trash-o']) ?>
+                      <?= $this->Html->link(__(''), ['action' => 'view', $apointment->patient_id], ['class'=>'btn btn-primary fa fa-eye']) ?>
+                      <?= $this->Html->link(__(''), ['action' => 'edit', $apointment->patient_id], ['class'=>'btn btn-info fa fa-edit']) ?>
+                      <?= $this->Form->postLink(__(''), ['action' => 'delete', $apointment->patient_id], ['confirm' => __('Confirm to delete this entry?'), 'class'=>' btn btn-danger fa fa-trash-o']) ?>
                     </td>
               </tr>
                 <?php endforeach; ?>

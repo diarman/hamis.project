@@ -107,4 +107,54 @@ class ResultsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * View method
+     *
+     * @param string|null $id Result id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function patientResult($id = null)
+    {
+        $result = $this->Results->get($id, [
+            'contain' => ['AnalysisElements']
+        ]);
+
+        $this->set('result', $result);
+        $this->set('_serialize', ['result']);
+    }
+    /**
+     * View method
+     *
+     * @param string|null $id Result id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function graphicResult($id = null)
+    {
+        $result = $this->Results->get($id, [
+            'contain' => ['AnalysisElements']
+        ]);
+
+        $this->set('result', $result);
+        $this->set('_serialize', ['result']);
+    }
+    /**
+     * View method
+     *
+     * @param string|null $id Result id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function doctorResult($id = null)
+    {
+        $result = $this->Results->get($id, [
+            'contain' => ['AnalysisElements']
+        ]);
+
+        $this->set('result', $result);
+        $this->set('_serialize', ['result']);
+    }
+    doctorResult
 }

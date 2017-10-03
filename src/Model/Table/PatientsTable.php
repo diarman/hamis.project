@@ -78,9 +78,9 @@ class PatientsTable extends Table
             ->scalar('medical_background')
             ->allowEmpty('medical_background');
 
-        $validator
+        /*$validator
             ->boolean('active')
-            ->allowEmpty('active');
+            ->allowEmpty('active');*/
 
         return $validator;
     }
@@ -94,7 +94,7 @@ class PatientsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
+        //$rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }
